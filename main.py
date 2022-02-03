@@ -12,9 +12,9 @@ class Plugin(Template):
 
         if 'Prometheus' in metadata.inputs['type']:
             subprocess.run(['dotnet', 'add', 'package', 'StackSpot.Metrics'])
-            using = "using StackSpot.Metrics;"
+            using = "using StackSpot.Metrics;\nusing Prometheus;"
             service = "services.ConfigureMetrics();"
-            app = "app.UseMetrics();"
+            app = "app.UseMetricServer();\napp.UseHttpMetrics();"
         
         print('Setting Configuration...')
 
