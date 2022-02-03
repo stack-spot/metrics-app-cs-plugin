@@ -1,0 +1,11 @@
+name: skynet-dotnet-metrics-app-cs-plugin
+description: Plugin to configure metrics on project
+types:
+  - app
+inputs:
+  - label: Set Type
+    type: text
+    default: "Prometheus"
+    name: type
+    items:
+      - "Prometheus"
