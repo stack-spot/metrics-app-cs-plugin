@@ -12,9 +12,9 @@ class Plugin(Template):
 
         if 'Prometheus' in metadata.inputs['type']:
             subprocess.run(['dotnet', 'add', 'package', 'StackSpot.Metrics'])
-            using = "using StackSpot.Metrics;\n"
-            service = "services.ConfigureMetrics();\n"
-            app = "app.UseMetrics();\n"
+            using = "using StackSpot.Metrics;"
+            service = "services.ConfigureMetrics();"
+            app = "app.UseMetrics();"
         
         print('Setting Configuration...')
 
@@ -26,8 +26,8 @@ class Plugin(Template):
         index_app = [x for x in range(len(content)) if 'return app' in content[x].lower()]
 
         content[0] = using+content[0]
-        content[index[0]] = f"{service};\n{content[index[0]]}"
-        content[index_app[0]] = f"{app};\n{content[index_app[0]]}"        
+        content[index[0]] = f"{service}\n{content[index[0]]}"
+        content[index_app[0]] = f"{app}\n{content[index_app[0]]}"        
         
         configuration_file = open(file='ConfigurationStackSpot.cs', mode='w')                     
         configuration_file.writelines(content)
