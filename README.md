@@ -1,1 +1,1 @@
-# skynet-dotnet-metrics-app-cs-plugin
+# metrics-app-cs-plugin

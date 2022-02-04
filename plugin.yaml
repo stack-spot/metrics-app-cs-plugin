@@ -1,4 +1,4 @@
-name: skynet-dotnet-metrics-app-cs-plugin
+name: metrics-app-cs-plugin
 description: Plugin to configure metrics on project
 types:
   - app
