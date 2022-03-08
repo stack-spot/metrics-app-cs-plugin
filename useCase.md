@@ -1,5 +1,4 @@
-## **Caso de Uso**
-### Criando métricas de negócio para sua aplicação
+#### Criando métricas de negócio para sua aplicação
 
 Agora, basta escolher qual será o tipo da sua métrica. Nossa stack disponibiliza a criação dos seguintes tipos:
 
@@ -8,7 +7,7 @@ Agora, basta escolher qual será o tipo da sua métrica. Nossa stack disponibili
 - [Summary](#summary)
 - [Histogram](#histogram)
 
-### Counter
+#### Counter
 
 ***Counter*** é a interface de criação para métricas do tipo "contador". A interface ***Counter*** permite que uma métrica seja incrementada por um valor fixo, que deve ser positivo.
 Um contador deve ser utilizado quando você precisa saber o valor absoluto de alguma coisa, como o número de novos clientes inseridos, a quantidade de logins, etc.
@@ -41,7 +40,7 @@ Saída da métrica criada acima no padrão de coleta do Prometheus:
 stackspot_api_calls_total{uri="WeatherForecast"} 1
 ```
 
-### Gauge
+#### Gauge
 
 ***Gauge*** é a interface de criação para métricas do tipo medida instantânea. Ela é usada para obter o valor atual de uma definição. Por exemplo, podemos utilizar o ***Gauge*** para mostrar a quantidade de tarefas em execução ou tamanho de uma fila de processos.
 
@@ -82,7 +81,7 @@ Saída da métrica criada acima no padrão de coleta do Prometheus:
 stackspot_last_quantity_returned 7
 ```
 
-### Summary
+#### Summary
 
 Uma métrica do tipo **Summary** é utilizada para rastrear eventos distribuídos.
 Basicamente, o sumário entrega um contador, a soma dos registros e o valor máximo de um valor registrado.
@@ -133,7 +132,7 @@ stackspot_weatherforecast_returned_total{quantile="0.99"} 7
 
 ```
 
-### Histogram
+#### Histogram
 
 O ***Histogram*** é uma interface de criação de sumário. Ele é feito com base em uma determinação e faz uma contagem de registro de acordo com níveis de serviço ("*SLA*") definidos.
 
