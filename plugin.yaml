@@ -10,7 +10,7 @@ inputs:
     items:
       - "Prometheus"
 
-displayName: Metrics - Plugin
+displayName: Metrics
 
 picture: "plugin.png"
 
