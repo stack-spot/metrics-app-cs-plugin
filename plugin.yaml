@@ -1,5 +1,5 @@
 name: metrics-app-cs-plugin
-description: Plugin para configurar métricas em seu projeto projeto, onde abstraímos toda complexidade deste processo de codificação, trazendo para seu projeto simplicidade para garantir o uso de métricas, sejam elas de negócio, infraestutura ou monitoramento.
+description: Plugin para configurar métricas em seu projeto projeto.
 types:
   - app
 inputs:
