@@ -10,6 +10,43 @@ inputs:
     items:
       - "Prometheus"
 
+hooks:
+#package
+  - type: run
+    trigger: before-render
+    commands:
+      - dotnet add src/{{global_inputs.project_name}}.Application package StackSpot.Metrics
+      - dotnet add src/{{global_inputs.project_name}}.Infrastructure package StackSpot.Metrics
+#dependencyinjection
+  - type: edit
+    trigger: before-render
+    path: "src/{{project_name}}.Application/Common/StackSpot/DependencyInjection.cs"
+    changes:
+      - search:
+          string: "using"
+          insert-before:
+            snippet: snippets/src/Application/using.txt
+          when:
+            not-exists: "using StackSpot.Metrics;"    
+      - search:
+          string: "return services"
+          insert-before:
+            snippet: snippets/src/Application/services.txt
+          when:
+            not-exists: "services.ConfigureMetrics();"
+      - search:
+          string: "return app"
+          insert-before:
+            snippet: snippets/src/Application/app.txt
+          when:
+            not-exists: "app.UseMetricServer();"              
+#format
+  - type: run
+    trigger: after-render
+    working-dir: src/{{project_name}}.Application
+    commands:
+      -  dotnet dotnet-format --include-generated
+
 displayName: Metrics
 
 picture: "plugin.png"
